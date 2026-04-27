@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 
 export const Header: React.FC = () => {
-  const currentPath = "#";
+  
 
   const activeStyle = "text-red-900";
   const defaultStyle = "text-slate-600 hover:text-red-900";

@@ -68,12 +68,12 @@ export default function Register() {
                 error={errors.password_confirm?.message} 
                 />
                 <div>
-                    <button 
+                    <Button
                         type="submit"
                         className="w-full bg-red-900 text-white py-3 rounded-lg font-semibold mt-4 transition"
-                        >
-                            Login
-                        </button>
+                    >
+                        Login
+                    </Button>
                 </div>
 
                 <div>

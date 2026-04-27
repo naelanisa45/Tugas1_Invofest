@@ -57,12 +57,11 @@ export default function Login() {
                 error={errors.password?.message} 
                 />
                 <div>
-                    <button 
-                    type="submit"
-                    className="w-full bg-red-900 text-white py-3 rounded-lg font-semibold mt-4 transition"
-                    >
-                        Login
-                    </button>
+                    <Button
+                        title="Login"
+                        type="submit"
+                        className="w-full bg-red-900 text-white py-3 rounded-lg font-semibold mt-4 transition"
+                    />
                 </div>
 
                 <div>
