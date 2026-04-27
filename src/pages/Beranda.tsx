@@ -1,6 +1,6 @@
 import Button from "../components/Button";
 import { Collapse } from "../components/Collapse";
-import Talkshow from "./Talkshow";
+
 
 export default function Beranda() {
 
