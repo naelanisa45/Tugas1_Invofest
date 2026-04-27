@@ -68,7 +68,7 @@ export default function Seminar() {
             Seminar nasional yang membahas strategi dan arsitektur teknologi untuk menciptakan sistem di mana manusia dan AI bekerja sebagai mitra yang sinergis. Tujuannya mengubah paradigma dari persaingan menjadi kolaborasi.
           </p>
 
-          <Button title="Daftar Sekarang" variant="primary" />
+          <Button title="Daftar Sekarang"  />
         </div>
 
         {/* RIGHT */}

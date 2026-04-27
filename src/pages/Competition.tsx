@@ -57,8 +57,8 @@ export default function Competition() {
                             </p>
                 
                             <div className="flex gap-4">
-                        <Button title="Info Selengkapnya" variant="primary" />
-                        <Button title="Hubungi Panitia" variant="outline" />
+                        <Button title="Info Selengkapnya"  />
+                        <Button title="Hubungi Panitia"  />
                       </div>
                     </div>
                   </div>

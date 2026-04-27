@@ -59,8 +59,8 @@ export default function Beranda() {
                     </p>
         
                     <div className="flex gap-4">
-                <Button title="Info Selengkapnya" variant="primary" />
-                <Button title="Hubungi Panitia" variant="outline" />
+                <Button title="Info Selengkapnya" />
+                <Button title="Hubungi Panitia" />
               </div>
             </div>
           </div>
@@ -154,7 +154,7 @@ export default function Beranda() {
           </p>
 
           <div>
-            <Button title="DAFTAR IT SEMINAR" variant="primary" />
+            <Button title="DAFTAR IT SEMINAR" />
           </div>
         </div>
 
@@ -191,7 +191,7 @@ export default function Beranda() {
           </p>
 
           <div>
-            <Button title="DAFTAR IT TALKSHOW" variant="primary" />
+            <Button title="DAFTAR IT TALKSHOW"  />
           </div>
         </div>
       </section>
@@ -211,7 +211,7 @@ export default function Beranda() {
           </p>
 
           <div>
-            <Button title="DAFTAR IT WORKSHOP" variant="primary" />
+            <Button title="DAFTAR IT WORKSHOP" />
           </div>
         </div>
 
@@ -248,7 +248,7 @@ export default function Beranda() {
           </p>
 
           <div>
-            <Button title="DAFTAR IT COMPETITION" variant="primary" />
+            <Button title="DAFTAR IT COMPETITION"  />
           </div>
         </div>
       </section>

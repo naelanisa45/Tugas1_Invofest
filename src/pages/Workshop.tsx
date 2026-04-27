@@ -76,7 +76,7 @@ export default function Workshop() {
                     IT Workshop ini menjembatani antara potensi Generasi Z dan kekuatan AI untuk menciptakan masa depan yang berkelanjutan. Peserta akan dibekali wawasan dan alat untuk mentransformasi ide-ide inovatif menjadi solusi lingkungan yang nyata dan terukur di era digital.
                   </p>
         
-                  <Button title="Daftar Sekarang" variant="primary" />
+                  <Button title="Daftar Sekarang" />
                 </div>
 
                 <div className="flex-1 flex justify-center">

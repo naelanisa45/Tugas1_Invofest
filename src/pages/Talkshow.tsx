@@ -81,7 +81,7 @@ export default function Talkshow() {
                     Talkshow “Humanizing Technology: Kolaborasi Manusia dan AI di Masa Depan” Sebuah diskusi interaktif yang mengeksplorasi cara mengintegrasikan nilai-nilai kemanusiaan seperti etika, empati, dan kreativitas ke dalam pengembangan kecerdasan buatan. yang bertujuan menginspirasi audiens untuk membangun dan memanfaatkan AI sebagai alat kolaboratif yang memperkuat potensi unik manusia, bukan sebagai penggantinya.
                   </p>
         
-                  <Button title="Daftar Sekarang" variant="primary" />
+                  <Button title="Daftar Sekarang" />
                 </div>
 
                 <div className="flex-1 flex justify-center">
