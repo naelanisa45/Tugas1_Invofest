@@ -8,6 +8,13 @@ import Talkshow from "./pages/Talkshow";
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
 import Register from "./pages/Register";
+import Dashboard from "./pages/dashboard/Dashboard";
+import ProtectedRoute from "./route/ProtectedRoute";
+import DashboardLayout from "./layouts/DashboardLayout";
+import CategoryIndex from "./pages/dashboard/kategori/CategoryIndex";
+import PembicaraIndex from "./pages/dashboard/pembicara/PembicaraIndex";
+import EventIndex from "./pages/dashboard/event/EventIndex";
+import CategoryCreate from "./pages/dashboard/kategori/CategoryCreate";
 
   function App() {
     return (
@@ -25,6 +32,21 @@ import Register from "./pages/Register";
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Route>
+
+        {/* route yang dilindungi, hanya bisa diakses jika sudah login */}
+        <Route element={<ProtectedRoute />}>
+          <Route element={<DashboardLayout />} >
+            <Route path="/dashboard" element={<Dashboard />} />
+
+            <Route path="/dashboard/category" element={<CategoryIndex />} />
+            <Route path="/dashboard/category/create"
+              element={<CategoryCreate />} />
+
+            <Route path="/dashboard/event" element={<EventIndex />} />
+            <Route path="/dashboard/pembicara" element={<PembicaraIndex />} />
+          </Route>
+          </Route>
+        
         </Routes>
       </BrowserRouter>
     );
