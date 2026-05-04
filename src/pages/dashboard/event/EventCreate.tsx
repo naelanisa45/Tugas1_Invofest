@@ -39,15 +39,15 @@ export default function EventCreate() {
             
             <InputEvent
                 label="Nama Event"
-                name="name"
+                name="title"
                 placeholder="Masukkan nama"
                 register={register}
                 error={errors.title?.message}
             />
             
             <InputEvent
-                label="Role"
-                name="role"
+                label="Tanggal"
+                name="date"
                 placeholder="Masukkan role"
                 register={register}
                 error={errors.date?.message}
