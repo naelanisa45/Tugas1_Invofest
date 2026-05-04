@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import InputEvent from "../../../components/InputEvent";
-import { date, z } from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 type FormData = {
@@ -36,35 +36,24 @@ export default function EventCreate() {
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col gap-4 max-w-md"
             >
-                <div>
-                    <label className="font-medium">Nama Event</label>
-                    <input
-                    {...register("title")}
-                    className="border p-2 rounded-lg w-full"
-                    placeholder="Masukkan nama event"
-                    />
-
-                    {errors.title && (
-                        <p className="text-red-500 text-sm">
-                            {errors.title.message}
-                        </p>
-                    )}
-                </div>
-
-            <div>
-                <label className="font-medium">Tanggal</label>
-                <input
-                {...register("date")}
-                className="border p-2 rounded-lg w-full"
-                placeholder="Masukkan tanggal"
-                />
-
-                {errors.date && (
-                    <p className="text-red-500 text-sm">
-                        {errors.date.message}
-                    </p>
-                )}
-            </div>
+            
+            <InputEvent
+                label="Nama Event"
+                name="name"
+                placeholder="Masukkan nama"
+                register={register}
+                error={errors.title?.message}
+            />
+            
+            <InputEvent
+                label="Role"
+                name="role"
+                placeholder="Masukkan role"
+                register={register}
+                error={errors.date?.message}
+            />
+            
+            
 
         <button className="bg-red-900 text-white p-2 rounded-xl">
             Simpan

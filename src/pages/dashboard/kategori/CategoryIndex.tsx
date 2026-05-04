@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function CategoryIndex() {
-    const [categories, setCategories] = useState([
+    const [categories]= useState([
         { name: "UI/UX Design"},
         { name: "Cyber Security"},
         { name: "Web Development"},
