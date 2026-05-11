@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
-import InputEvent from "../../../components/InputEvent";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Input from "../../../components/Input";
+import Button from "../../../components/Button";
+
 
 type FormData = {
     title: string;
@@ -9,7 +11,7 @@ type FormData = {
 };
 
 const schema = z.object({
-    title: z.string().min(1, "Judul event tidak boleh kosong"),
+    title: z.string().min(1, "Nama event tidak boleh kosong"),
     date: z.string().min(1, "Tanggal tidak boleh kosong"),
 });
 
@@ -24,7 +26,6 @@ export default function EventCreate() {
 
     const onSubmit = (data: FormData) => {
         console.log(data);
-        alert("Event berhasil ditambahkan!");
     };
 
     return (
@@ -33,31 +34,27 @@ export default function EventCreate() {
             <p className="mb-4">Form untuk menambahkan event</p>
 
             <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="flex flex-col gap-4 max-w-md"
-            >
+                onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 max-w-md">
             
-            <InputEvent
+            <Input
                 label="Nama Event"
                 name="title"
-                placeholder="Masukkan nama"
                 register={register}
                 error={errors.title?.message}
             />
             
-            <InputEvent
+            <Input
                 label="Tanggal"
                 name="date"
-                placeholder="Masukkan role"
                 register={register}
                 error={errors.date?.message}
             />
-            
-            
 
-        <button className="bg-red-900 text-white p-2 rounded-xl">
-            Simpan
-        </button>
+            <Button
+                title="Simpan"
+                type="submit"
+                variant="primary"
+            />    
         </form>
     </div>
     );

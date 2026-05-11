@@ -41,7 +41,7 @@ export default function EventIndex() {
 
             <Link
                 to="/dashboard/event/create"
-                className="mt-4 inline-block px-4 py-2 bg-red-600 text-white rounded"
+                className="mt-4 inline-block px-4 py-2 bg-red-900 text-white rounded"
             >
                 Tambah Event
             </Link>

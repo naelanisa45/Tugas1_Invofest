@@ -1,16 +1,16 @@
 import { useForm } from "react-hook-form";
-import InputCategory from "../../../components/InputCategory";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Input from "../../../components/Input";
+import Button from "../../../components/Button";
 
+//definisikan field yang ada pada form tambah kategori event
 type FormData = {
-    category: string;
-    category_id: string;
+    name: string;
 };
 
 const schema = z.object({
-    category: z.string().min(1, "Category tidak boleh kosong"),
-    category_id: z.string().min(1, "Category ID tidak boleh kosong"),
+    name: z.string().min(1, "Nama tidak boleh kosong"),
 });
 
 export default function CategoryCreate() {
@@ -18,46 +18,33 @@ export default function CategoryCreate() {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormData>({
-        resolver: zodResolver(schema),
-    });
+    } = useForm<FormData>({ resolver: zodResolver(schema) });
 
     const onSubmit = (data: FormData) => {
-        console.log(data);
-        alert("Kategori berhasil ditambahkan!");
-    };
+    console.log(data);
+};
+
 
     return (
         <div className="p-4">
             <h1 className="text-2xl font-bold mb-4">Tambah Kategori</h1>
             <p className="mb-4">Form untuk menambahkan kategori event</p>
 
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="flex flex-col gap-4 max-w-md"
-            >
-                <InputCategory
-                    label="Name Category"
-                    name="category"
-                    placeholder="Masukkan nama category"
-                    register={register}
-                    error={errors.category?.message}
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+                <Input 
+                    label = "Nama Kategori" 
+                    name="name" 
+                    register={register} 
+                    error={errors.name?.message} 
                 />
 
-                <InputCategory
-                    label="Category ID"
-                    name="category_id"
-                    placeholder="Masukkan ID kategori"
-                    register={register}
-                    error={errors.category_id?.message}
-                />
-
-                <button
+                <Button 
+                    title ="Simpan"
                     type="submit"
-                    className="bg-red-900 text-white p-2 rounded-xl"
-                >
-                    Simpan
-                </button>
+                    variant="primary"
+                />
+            
+
             </form>
         </div>
     );

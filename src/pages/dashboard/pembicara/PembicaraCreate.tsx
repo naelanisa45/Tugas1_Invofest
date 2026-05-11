@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
-import InputPembicara from "../../../components/InputPembicara";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Input from "../../../components/Input";
+import Button from "../../../components/Button";
+
 
 type FormData = {
     name: string;
@@ -18,13 +20,12 @@ export default function SpeakerCreate() {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormData>({
-        resolver: zodResolver(schema),
+    } = useForm<FormData>({ 
+        resolver: zodResolver(schema) 
     });
 
     const onSubmit = (data: FormData) => {
         console.log(data);
-        alert("Pembicara berhasil ditambahkan!");
     };
 
     return (
@@ -32,30 +33,27 @@ export default function SpeakerCreate() {
             <h1 className="text-2xl font-bold mb-4">Tambah Pembicara</h1>
             <p className="mb-4">Form untuk menambahkan pembicara</p>
 
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="flex flex-col gap-4 max-w-md"
-            >
-
-                <InputPembicara
-                    label="Nama Pembicara"
-                    name="name"
-                    placeholder="Masukkan nama"
-                    register={register}
-                    error={errors.name?.message}
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+               <Input
+                    label = "Nama Pembicara" 
+                    name="name" 
+                    register={register} 
+                    error={errors.name?.message} 
                 />
 
-                <InputPembicara
-                    label="Role"
+                <Input
+                    label = "Role"
                     name="role"
-                    placeholder="Masukkan role"
                     register={register}
                     error={errors.role?.message}
                 />
+                    
+            <Button 
+                    title ="Simpan"
+                    type="submit"
+                    variant="primary"
+                />
 
-                <button className="bg-red-900 text-white p-2 rounded-xl">
-                    Simpan
-                </button>
             </form>
         </div>
     );

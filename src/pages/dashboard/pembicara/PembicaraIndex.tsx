@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function SpeakerIndex() {
-    const [speakers] = useState([
+    const [pembicara] = useState([
         {
             name: "Lhuqita Fazry",
             role: "Mobile Developer",
@@ -22,24 +22,26 @@ export default function SpeakerIndex() {
             <h1 className="text-2xl font-bold mb-4">Pembicara</h1>
             <p className="mb-6 text-gray-600">Daftar Pembicara</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {speakers.map((spk, index) => (
+            <div className="grid grid-cols-2 gap-4">
+                {pembicara.map((item, index) => (
                     <div
                         key={index}
-                        className="bg-white shadow rounded-xl-p-4"
+                        className="bg-white shadow rounded-xl p-4 text-center font-medium"
                     >
-                        <h2 className="font-semibold text-lg">{spk.name}</h2>
-                        <p className="text-gray-500 text-sm">{spk.role}</p>
+                        <h2 className="font-semibold text-lg">{item.name}</h2>
+                        <p className="text-gray-500 text-sm">{item.role}</p>
                     </div>
                 ))}
             </div>
 
-            <Link
-                to="/dashboard/pembicara/create"
-                className="mt-4 inline-block nt-6 px-4 py-2 bg-red-600 text-white rounded-lg"
+            <Link 
+                to="/dashboard/pembicara/create" 
+                className="mt-4 inline-block px-4 py-2 bg-red-900 text-white rounded"
             >
-                Tambah Pembicara
-            </Link>
+                    Tambah Pembicara
+                </Link>
+
+
         </div>
     )
 }
