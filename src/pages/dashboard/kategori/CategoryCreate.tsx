@@ -3,6 +3,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 //definisikan field yang ada pada form tambah kategori event
 type FormData = {
@@ -14,14 +15,35 @@ const schema = z.object({
 });
 
 export default function CategoryCreate() {
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-    const onSubmit = (data: FormData) => {
-    console.log(data);
+    const onSubmit = async (data: FormData) => {
+        try {
+            const response = await fetch(
+                "http://localhost:3000/categories",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                }
+            );
+
+            if (response.ok) {
+                alert("Kategori berhasil ditambahkan");
+                navigate("/dashboard/category");
+            } else {
+                alert("Gagal menambahkan kategori");
+            }
+        } catch (error) {
+            console.error(error);
+        }
 };
 
 

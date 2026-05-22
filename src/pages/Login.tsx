@@ -10,12 +10,12 @@ import { useAuthStore } from "../store/useAuthStore";
 
 
 type FormData = {
-    email: string;
+    NIM: string;
     password: string;
 };
 
 const schema = z.object ({
-    email: z.string().min(1, "Email harus diisi"),
+    NIM: z.string().min(1, "NIM harus diisi"),
     password: z.string().min(8, "Minimal 8 Karakter"),
 });
 
@@ -33,11 +33,11 @@ export default function Login() {
     console.log(data);
 
     if (
-        data.email === "admin@gmail.com" &&
-        data.password === "password123"
+        data.NIM === "24090015" &&
+        data.password === "naelanisa"
     ) {
         alert("Login Berhasil");
-        login(data.email);
+        login(data.NIM);
         navigate("/dashboard")
     } else {
         alert("Login Gagal: Username atau Password salah");
@@ -60,10 +60,10 @@ export default function Login() {
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
             <InputPassword 
-                label="email"
-                name="email"
+                label="NIM"
+                name="NIM"
                 register={register}
-                error={errors.email?.message} 
+                error={errors.NIM?.message} 
                 />
             
             <InputPassword

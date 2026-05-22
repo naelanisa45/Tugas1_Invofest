@@ -1,13 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function CategoryIndex() {
-    const [categories]= useState([
-        { name: "UI/UX Design"},
-        { name: "Cyber Security"},
-        { name: "Web Development"},
-        { name: "Artifical Intelligence"},
-    ]);
+
+    const [categories, setCategories]= useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/categories")
+            .then((res) => res.json())
+            .then((data) => {
+                setCategories(data);
+            });
+    }, []);
+
+    const handleDelete = async (id: number) => {
+        try {
+            const response = await fetch(
+                `http://localhost:3000/categories/${id}`,
+                {
+                    method: "DELETE",
+                }
+            );
+
+            if (response.ok) {
+                alert("Kategori berhasil dihapus");
+
+                setCategories(
+                    categories.filter((cat: any) => cat.id !== id)
+                );
+            } else {
+                alert("Gagal menghapus kategori");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <div className="p-4">
@@ -20,9 +47,28 @@ export default function CategoryIndex() {
                 {categories.map((cat, index) => (
                     <div
                         key={index}
-                        className="bg-white shadow rounded-xl p-4 text-center font-medium"
+                        className="bg-white shadow rounded-xl p-4 flex flex-col items-center gap-4"
                     >
-                        {cat.name}
+                        <p className="font-medium text-lg">
+                            {cat. name}
+                        </p>
+
+                        <div className="flex gap-2">
+                            <Link
+                                to={`/dashboard/category/edit/${cat. id}`}
+                                className="mt-4 w-20 inline-block px-4 py-2 bg-red-900 text-white rounded"
+                            >
+                                Edit
+                            </Link>
+
+                            <button
+                                onClick={() => handleDelete(cat. id)}
+                                className="mt-4 inline-block px-4 py-2 bg-red-900 text-white rounded"
+                            >
+                                Delete
+                            </button>
+                        </div>
+
                     </div>
                 ))}
             </div>

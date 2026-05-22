@@ -17,6 +17,10 @@ import EventIndex from "./pages/dashboard/event/EventIndex";
 import CategoryCreate from "./pages/dashboard/kategori/CategoryCreate";
 import EventCreate from "./pages/dashboard/event/EventCreate";
 import PembicaraCreate from "./pages/dashboard/pembicara/PembicaraCreate";
+import CategoryEdit from "./pages/dashboard/kategori/CategoryEdit";
+import PembicaraEdit from "./pages/dashboard/pembicara/PembicaraEdit";
+import EventEdit from "./pages/dashboard/event/EventEdit";
+import Biodata from "./pages/dashboard/biodata/Biodata";
 
   function App() {
     return (
@@ -43,12 +47,18 @@ import PembicaraCreate from "./pages/dashboard/pembicara/PembicaraCreate";
             <Route path="/dashboard/category" element={<CategoryIndex />} />
             <Route path="/dashboard/category/create"
               element={<CategoryCreate />} />
+            <Route path="/dashboard/category/edit/:id" element={<CategoryEdit />} />
 
             <Route path="/dashboard/event" element={<EventIndex />} />
             <Route path="/dashboard/event/create" element={<EventCreate/>} />
+            <Route path="/dashboard/event/edit/:id" element={<EventEdit />} />
             
             <Route path="/dashboard/pembicara" element={<PembicaraIndex />} />
             <Route path="/dashboard/pembicara/create" element={<PembicaraCreate />} />
+            <Route path="/dashboard/pembicara/edit/:id" element={<PembicaraEdit />} />
+
+            <Route path="/dashboard/biodata" element={<Biodata />} />
+
           </Route>
           </Route>
         

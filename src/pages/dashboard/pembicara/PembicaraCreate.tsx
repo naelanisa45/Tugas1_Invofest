@@ -24,8 +24,27 @@ export default function SpeakerCreate() {
         resolver: zodResolver(schema) 
     });
 
-    const onSubmit = (data: FormData) => {
-        console.log(data);
+    const onSubmit = async (data: FormData) => {
+        try {
+            const response = await fetch(
+                "http://localhost:3000/pembicara",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                }
+            );
+
+            if (response.ok) {
+                alert("Pembicara berhasil ditambahkan");
+            } else {
+                alert("Gagal menambahkan pembicara");
+            }
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
